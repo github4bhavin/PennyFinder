@@ -10,8 +10,12 @@ class OutlookConnectTest( unittest.TestCase):
         self.outlook = imaplib.IMAP4_SSL( lib.AppConfig.outlook_server )
 
     def test_connect_outlook(self):
+<<<<<<< HEAD
         self.outlook.login(  lib.AppConfig.outlook_login_name
                             ,lib.AppConfig.outlook_login_password )
+=======
+        self.outlook.login( lib.AppConfig.outlook_login_name, lib.AppConfig.outlook_login_password)
+>>>>>>> origin/master
 
 if __name__ == '__main__':
     unittest.main()
