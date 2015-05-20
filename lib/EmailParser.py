@@ -3,17 +3,20 @@ __author__ = 'bhavinpatel'
 import AppConfig
 import imaplib
 import email
+import importlib
 
 from pprint import pprint
 
 class EmailParser:
 
-    _outlook = None
+    _outlook  = None
+    _plugins  = []
     _messages = []
 
     def __init__(self):
 
         self.__init_outlook()
+        self._load_plugins()
 
     def __init_outlook(self):
         self._outlook = imaplib.IMAP4_SSL( AppConfig.outlook_server )
@@ -43,4 +46,8 @@ class EmailParser:
 
     def get_all_messages(self):
         return self.__get_all_messages()
+
+    def _load_plugins(self):
+        self._plugins.append( importlib.import_module( 'lib.Plugins.Default') )
+
 
