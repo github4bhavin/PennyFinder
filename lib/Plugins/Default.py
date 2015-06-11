@@ -2,7 +2,7 @@ __author__ = 'bhavinpatel'
 
 import re
 
-class Default:
+class Default(object):
 
     def SubjectParser(self, subject ):
 

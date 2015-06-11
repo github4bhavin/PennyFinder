@@ -41,6 +41,9 @@ class EmailParser:
             i += 1
             if i > 10:
                 break
+            for plugin in self._plugins:
+                plugin()
+
 
         return  '\n'.join( self._messages )
 
@@ -48,6 +51,6 @@ class EmailParser:
         return self.__get_all_messages()
 
     def _load_plugins(self):
-        self._plugins.append( importlib.import_module( 'lib.Plugins.Default') )
+        self._plugins.append( importlib.import_module( 'lib.Plugins.Default','SubjectParser') )
 
 
