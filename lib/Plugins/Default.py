@@ -7,4 +7,4 @@ class Default(object):
     def SubjectParser(self, subject ):
 
         symbolPattern = re.compile('[A-Z]{3,5}')
-        symbolPattern.match( subject )
+        return symbolPattern.match( subject )
